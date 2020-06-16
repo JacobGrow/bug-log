@@ -1,0 +1,42 @@
+<template>
+ <div class="Note">
+<div class="row mx-2 py-0 mb-0 border border-light">
+
+   <div class="col-5 px-0">
+     <p class="m-1"> {{ note.creatorEmail }}</p>
+   </div>
+   <div class="col-6 px-0">
+  <p class="m-1">{{ note.content }}</p>
+   </div>
+   <div class="col-1">
+  <i class="fa fa-trash text-danger pointer" @click="removeNote"></i>
+   </div>
+   </div>
+</div>
+    
+
+
+
+</template>
+
+
+
+<script>
+export default {
+  name: "Note",
+  props: ["note"],
+  methods: {
+    removeNote(){
+      this.$store.dispatch("removeNote", this.note)
+    }
+  }
+}
+
+</script>
+
+<style scoped>
+
+.pointer{
+  cursor: pointer;
+}
+</style>
