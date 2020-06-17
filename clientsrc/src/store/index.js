@@ -28,9 +28,14 @@ export default new Vuex.Store({
       state.activeBug = bug
     },
 
-    setNotes(state, note) {
-      state.notes = note
+    setNotes(state, data) {
+      state.notes = data
+    },
+
+    updateBug(state, bug) {
+      state.activeBug = bug
     }
+
 
   },
 

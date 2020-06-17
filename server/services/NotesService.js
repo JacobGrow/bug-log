@@ -15,11 +15,13 @@ class NotesService {
     return data
   }
 
-  async edit(update){
-    let data = await dbContext.Notes.findByIdAndUpdate(update.id, update, {
-      new: true
-    });
-    return data;
+  async edit(id, userEmail, update){
+    let data = await dbContext.Notes.findOneAndUpdate(update.id, update, {
+      new: true});
+      if(!data) {
+        throw new BadRequest("Invalid ID or you do not own this note")
+      }
+      return data;
   }
 
   async delete(id) {

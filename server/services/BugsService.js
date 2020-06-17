@@ -44,7 +44,8 @@ class BugsService {
   async close(id, userEmail, update) {
     update.closed = true;
     update.closingDate = new Date();
-
+    
+// Should be findOneAndUpdate
     let data = await dbContext.Bugs.findByIdAndUpdate({
       _id: id, creatorEmail: userEmail },
       update,

@@ -42,29 +42,41 @@
 
 
         <div class="card kard text-center">
-THE BUGS WILL GO HERE
+Bugs
 <div class="row mb-0 pb-0 px-0">
-  <div class="col mb-0 pb-0">
+  <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0">Title</p>
   </div>
-  <div class="col mb-0 pb-0">
+  <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0">Reported By</p>
   </div>
-  <div class="col mb-0 pb-0">
+  <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0">Closed Status</p>
+  </div>
+  <div class="col-3 mb-0 pb-0 p-0">
+    <p class="pb-0 mb-0 pr-3">Last Modified</p>
   </div>
 </div>
 <div v-for="bug in bugs" :key="bug.id" :bug="bug">
   <router-link :to="{name: 'bug', params: {bugId: bug._id}}">
-  <div class="row mt-0 pt-0 border border-dark px-0 mx-0">
-    <div class="col p-0">
+  <div class="row mt-0 pt-0 border border-dark px-0 mx-0" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
+    <div class="col-3 p-0 text-center">
   {{ bug.title }}
   </div>
-  <div class="col p-0">
+  <div class="col-3 p-0 text-center">
     {{ bug.creatorEmail }}
   </div>
-  <div class="col p-0">
+  <div class="col-3 p-0 text-center">
     {{ bug.closed }}
+  </div>
+  <div class="col-3 p-0 text-center">
+            {{
+              new Date(bug.updatedAt).toLocaleString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+            }}
   </div>
   </div>
   </router-link>
@@ -124,5 +136,15 @@ export default {
 .kard{
   margin-top: 50px;
   height: 300px;
+}
+
+.open{
+  background-color: #389981;
+  color: white;
+}
+
+.closed{
+  background-color: rgb(173, 64, 64);
+  color: white;
 }
 </style>

@@ -1,14 +1,15 @@
 import api from "./AxiosService"
 import router from '../router/index'
+import { BugsStore } from './BugsStore'
 
 
 export const NotesStore = {
 
     actions: {
 
-      async getNotes({ commit, dispatch }, id) {
+      async getNotes({ commit, dispatch }, bugId) {
          try {
-           let res = await api.get('bugs/' + id + '/notes');
+           let res = await api.get('bugs/' + bugId + '/notes');
            commit("setNotes", res.data)
          } catch (error) {
            console.error(error)
@@ -30,6 +31,7 @@ export const NotesStore = {
             } catch (error) {
                 console.error(error)
             }
-        }
+        },
+
     }
 }

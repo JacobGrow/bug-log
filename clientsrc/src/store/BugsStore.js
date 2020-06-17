@@ -38,6 +38,14 @@ export const BugsStore = {
         } catch (error) {
           console.error(error) 
         }
+      },
+
+      async editBug({ commit, dispatch }, bug) {
+        try {
+          let res= await api.put('bugs/' + bug._id, bug)
+        } catch (error) {
+          console.error(error)
+        }
       }
     }
 }
