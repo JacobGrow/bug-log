@@ -31,10 +31,10 @@ export const BugsStore = {
         }
       },
 
-      async removeBug({ commit, dispatch}, id) {
+      async closeBug({ commit, dispatch}, bug) {
         try {
-          let res = await api.delete("bugs/" + id);
-          dispatch("getAllBugs")
+          let res = await api.delete("bugs/" + bug);
+          dispatch("getBugDetails", bug)
         } catch (error) {
           console.error(error) 
         }

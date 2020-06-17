@@ -19,7 +19,6 @@ export class BugsController extends BaseController {
   }
   async getAll(req, res, next) {
     try {
-      //only gets bugs by user who is logged in
       let data = await bugsService.find(req.query)
       return res.send(data)
     }

@@ -30,9 +30,12 @@
         <div class="col-11">
         <p>{{ bug.description }}</p>
         </div>
-        <div class="col-1 text-right">
-          <i class="fa fa-pencil pointer" data-toggle="modal" data-target="#bugEditModal"></i>
+        <div class="col-1 text-right" v-if="IsCreator">
+          <i class="fa fa-pencil pointer" data-toggle="modal" data-target="#bugEditModal" v-if="bug.closed==false"></i>
         </div>
+      </div>
+      <div class="row justify-content-end mt-2" v-if="IsCreator">
+      <button class="btn btn-danger" @click="closeAlert" v-if="bug.closed == false" >CLOSE BUG</button>
       </div>
       <div class="row justify-content-center">
       <div class="col-10">
@@ -104,9 +107,15 @@
       </div>
         <form @submit.prevent="editBug" id="bugEditForm">
       <div class="modal-body">
-        <input type="text" v-model="bug.title">
-          <div class="row justify-content-center">
-          <textarea v-model="bug.description"  class="ml-2" placeholder="Your notes here.." name="" id="" cols="50" rows="7" required></textarea>
+        <div class="row">
+          <div class="col-10 text-left">
+        <input class = "ml-2" type="text" v-model="bug.title">
+          </div>
+        </div>
+          <div class="row mt-1">
+            <div class="col-10 text-left">
+          <textarea v-model="bug.description"  class="ml-2" placeholder="Your notes here.." name="" id="" cols="60" rows="7" required></textarea>
+            </div>
           </div>
       </div>
       <div class="modal-footer">
@@ -152,7 +161,10 @@ export default {
 
     bug() {
       return this.$store.state.activeBug;
-    }
+    },
+    IsCreator(){
+        return this.$store.state.profile.email == this.bug.creatorEmail
+      },
   },
 
   methods: {
@@ -168,6 +180,30 @@ export default {
      this.$store.dispatch("editBug", this.bug)
       $("#bugEditModal").modal("hide");
     },
+
+    closeBug(){
+      this.$store.dispatch("closeBug", this.bug._id)
+    },
+
+    closeAlert(){
+    swal({
+  title: "Are you sure?",
+  text: "Once closed, you will not be able to modify this bug.",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Your bug has been closed", {
+      icon: "success",
+    });
+    this.closeBug()
+  } else {
+    swal("Your note is safe!");
+  }
+});
+  },
     },
 
   components: {

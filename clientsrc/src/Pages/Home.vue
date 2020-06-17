@@ -26,12 +26,14 @@
           <input v-model="newBug.title" class="ml-2 mb-1" type="text" placeholder="Title..." required>
           </div>
           <div class="row">
-          <textarea v-model="newBug.description"  class="ml-2" placeholder="Your comments here.." name="" id="" cols="50" rows="10" required></textarea>
+          <textarea v-model="newBug.description"  class="ml-2" placeholder="Your comments here.." name="" id="" cols="60" rows="10" required></textarea>
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <router-link :to="{name: 'bug', params: {bugId: bug._id}}"> -->
         <button type="submit" class="btn btn-primary">Submit Report</button>
+        <!-- </router-link> -->
       </div>
         </form>
     </div>
@@ -124,6 +126,7 @@ export default {
     addBug() {
       this.$store.dispatch("addBug", this.newBug);
       this.newBug = { title: "", description: ""}
+      this.$router.push('bug')
     }
   },
   components: {
