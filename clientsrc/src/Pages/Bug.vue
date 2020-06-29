@@ -182,7 +182,8 @@ export default {
     },
 
     closeBug(){
-      this.$store.dispatch("closeBug", this.bug._id)
+      this.bug.closed = true
+      this.$store.dispatch("editBug", this.bug)
     },
 
     closeAlert(){

@@ -1,5 +1,6 @@
 import api from "./AxiosService"
 import router from '../router/index'
+import Bug from "../../../server/models/Bug";
 
 export const BugsStore = {
 
@@ -19,7 +20,7 @@ export const BugsStore = {
         try {
           let res = await api.post("bugs", bugData)
           dispatch('getBugs')
-          router.push({name: "bug", params: {bugId: res.data._id}})
+          // router.push({name: "bug", params: {bugId: res.data._id}})
         } catch (error) {
           console.error(error)
         }
@@ -36,14 +37,6 @@ export const BugsStore = {
         }
       },
 
-      async closeBug({ commit, dispatch}, bug) {
-        try {
-          let res = await api.delete("bugs/" + bug);
-          dispatch("getBugDetails", bug)
-        } catch (error) {
-          console.error(error) 
-        }
-      },
 
       async editBug({ commit, dispatch }, bug) {
         try {
