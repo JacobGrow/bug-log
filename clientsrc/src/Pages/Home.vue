@@ -126,7 +126,7 @@ export default {
     addBug() {
       this.$store.dispatch("addBug", this.newBug);
       this.newBug = { title: "", description: ""}
-      this.$router.push('bug')
+      // this.$router.push('bug')
     }
   },
   components: {

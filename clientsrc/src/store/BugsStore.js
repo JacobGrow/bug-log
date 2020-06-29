@@ -15,11 +15,16 @@ export const BugsStore = {
       }
       },
 
-      addBug({ commit, dispatch }, bugData) {
-        api.post('bugs', bugData)
-        .then(serverBug => {
+   async  addBug({ commit, dispatch }, bugData) {
+        try {
+          let res = await api.post("bugs", bugData)
           dispatch('getBugs')
-        })
+          router.push({name: "bug", params: {bugId: res.data._id}})
+        } catch (error) {
+          console.error(error)
+        }
+      
+        
       },
 
       async getBugDetails({ commit, dispatch}, bugId) {

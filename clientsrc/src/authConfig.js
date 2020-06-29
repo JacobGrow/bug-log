@@ -1,3 +1,3 @@
-export const domain = "austin-idaho.auth0.com";
-export const audience = "https://kanban";
-export const clientId = "PNM9sGE95f7AjY9sZBJOJ6ZiNmuio1QI";
+export const domain = "jakes-domain.us.auth0.com";
+export const audience = "bugtracker";
+export const clientId = "Z1O7cHPEfm9mM6ZE3iR4a8MPr69GXBAz";
