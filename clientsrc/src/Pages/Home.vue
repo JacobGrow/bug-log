@@ -40,12 +40,12 @@
   </div>
 </div>
 
-<div class="row card bg1 pb-4 px-4 mt-1">
+<div class="row card bg1 px-4 mt-1">
   <div class="col">
 
 
 
-<div class="card kard bg-light text-center mt-0 pt-0">
+<div class="card kard bg-light text-center my-4 pt-0">
 <div class="row mb-0 pb-0 px-0">
   <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0 text-dark font"><b>Title</b></p>

@@ -1,6 +1,6 @@
 <template>
 
-   <footer class=" footer bg-primary text-center pt-2">
+   <footer class=" footer text-center pt-2">
    <h5 class="text-light"> Made by Jacob Grow </h5>
   </footer>
 
@@ -20,5 +20,6 @@ footer{
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  background-color: #1a1a1a;
 }
 </style>
