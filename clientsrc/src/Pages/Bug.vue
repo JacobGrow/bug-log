@@ -2,7 +2,7 @@
 <div class="bug container-fluid">
 
   <div class="row card">
-    <div class="col mx-5">
+    <div class="col">
       <div class="row mt-5">
         <div class="col-6">
         <h1>{{ bug.title }} </h1>
@@ -23,7 +23,7 @@
           </h5>
         </div>
         <div class="col-2 d-flex align-items-end">
-        <h5 class="text-right">Closed:  {{ bug.closed }}</h5>
+        <h5 class="text-right" v-if="bug.closed"> This bug has been closed</h5>
         </div>
       </div>
       <div class="row mt-2 border border-light pt-1">
@@ -34,8 +34,10 @@
           <i class="fa fa-pencil pointer" data-toggle="modal" data-target="#bugEditModal" v-if="bug.closed==false"></i>
         </div>
       </div>
-      <div class="row justify-content-end mt-2" v-if="IsCreator">
+      <div class="row mt-2" v-if="IsCreator">
+        <div class="col text-right">
       <button class="btn btn-danger" @click="closeAlert" v-if="bug.closed == false" >CLOSE BUG</button>
+        </div>
       </div>
       <div class="row justify-content-center">
       <div class="col-10">
