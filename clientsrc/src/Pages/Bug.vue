@@ -1,7 +1,7 @@
 <template>
 <div class="bug container-fluid">
 
-  <div class="row">
+  <div class="row card">
     <div class="col mx-5">
       <div class="row mt-5">
         <div class="col-6">

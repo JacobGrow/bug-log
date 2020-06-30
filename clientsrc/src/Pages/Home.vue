@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <div class="home bg">
 <div class="container-fluid">
 <div class="row">
 <div class="col">
-    <div class="row">
-      <div class="col text-center">
-    <h1>Lets Log Some Bugs</h1>
+    <div class="row justify-content-center mt">
+      <div class="col-4 text-center bg1 card">
+    <h1 class="">Make A Report</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -31,19 +31,19 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- <router-link :to="{name: 'bug', params: {bugId: bug._id}}"> -->
         <button type="submit" class="btn btn-primary">Submit Report</button>
-        <!-- </router-link> -->
       </div>
         </form>
     </div>
   </div>
 </div>
 
+<div class="row card bg1 p-4">
+  <div class="col">
 
 
 
-        <div class="card kard text-center">
+<div class="card kard bg-light text-center">
 Bugs
 <div class="row mb-0 pb-0 px-0">
   <div class="col-3 mb-0 pb-0 p-0">
@@ -82,6 +82,8 @@ Bugs
   </div>
   </div>
   </router-link>
+  </div>
+</div>
 </div>
         </div>
 </div>
@@ -93,6 +95,9 @@ Bugs
       </div>
     </div>
   </div>
+  <footer class="text-center pt-2">
+   <h5 class="text-light"> Made by Jacob Grow </h5>
+  </footer>
 </div>
 </div>
 </template>
@@ -137,17 +142,39 @@ export default {
 
 <style scoped>
 .kard{
-  margin-top: 50px;
-  height: 300px;
+  margin-top: 15px;
+  min-height: 300px;
 }
 
-.open{
+/* .kard1{
+  width
+} */
+.bg{
+  background-color: #323232;
+  min-height: 100%
+}
+
+.bg1{
+  background-color: #dae0e6;
+}
+.mt{
+  margin-top: 15px;
+}
+
+footer{
+  min-height: 50px;
+  background-color: #323232;
+  color: white;
+}
+
+
+/* .open{
   background-color: #389981;
   color: white;
-}
+} */
 
-.closed{
+/* .closed{
   background-color: rgb(173, 64, 64);
-  color: white;
-}
+  color: white; */
+/* } */
 </style>
