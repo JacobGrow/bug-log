@@ -159,16 +159,6 @@ export default {
   margin-top: 15px;
 }
 
-footer{
-  min-height: 50px;
-  background-color: #323232;
-  color: white;
-  margin-bottom: 0;
-  bottom: 0;
-}
-
-
-
 /* .open{
   background-color: #389981;
   color: white;
