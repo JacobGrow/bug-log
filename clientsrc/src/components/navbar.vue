@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-primary text-white">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      
       <h1 class="text-light">BugLogger</h1>
         </router-link>
     <button
@@ -33,6 +34,7 @@
           >
         </li>
       </ul>
+       <!-- <img class="align-self-center" src="https://img.icons8.com/carbon-copy/100/000000/bug.png"/>  -->
       <span class="navbar-text">
         <button
           class="btn btn-success"

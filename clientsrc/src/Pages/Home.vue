@@ -48,23 +48,23 @@
 <div class="card kard bg-light text-center mt-0 pt-0">
 <div class="row mb-0 pb-0 px-0">
   <div class="col-3 mb-0 pb-0 p-0">
-    <p class="pb-0 mb-0">Title</p>
+    <p class="pb-0 mb-0 text-dark font"><b>Title</b></p>
   </div>
   <div class="col-3 mb-0 pb-0 p-0">
-    <p class="pb-0 mb-0">Reported By</p>
+    <p class="pb-0 mb-0 text-dark font"><b>Reported By</b></p>
   </div>
   <div class="col-3 mb-0 pb-0 p-0">
-    <p class="pb-0 mb-0">Closed Status</p>
+    <p class="pb-0 mb-0 text-dark font"><b>Closed Status</b></p>
   </div>
   <div class="col-3 mb-0 pb-0 p-0">
-    <p class="pb-0 mb-0 pr-3">Last Modified</p>
+    <p class="pb-0 mb-0 pr-3 text-dark font"><b>Last Modified</b></p>
   </div>
 </div>
 <div v-for="bug in bugs" :key="bug.id" :bug="bug">
   <router-link :to="{name: 'bug', params: {bugId: bug._id}}">
   <div class="row mt-0 pt-0 px-0 mx-0 border-bottom border-dark" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
-    <div class="col-3 p-0 text-center border-right border-top border-dark">
-  <p class="m-0">{{ bug.title }}</p>
+    <div class="col-3 p-0 text-left border-right border-top border-dark">
+  <p class="m-0 pl-2 text">{{ bug.title }}</p>
   </div>
   <div class="col-3 p-0 text-center border-right border-top border-dark">
     <p class="m-0">{{ bug.creatorEmail }}</p>
@@ -142,6 +142,16 @@ export default {
 </script>
 
 <style scoped>
+.text {
+  
+  width: 16em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.font{
+  font-size: medium;
+}
 .kard{
   margin-top: 15px;
   min-height: 300px;
