@@ -62,18 +62,18 @@
 </div>
 <div v-for="bug in bugs" :key="bug.id" :bug="bug">
   <router-link :to="{name: 'bug', params: {bugId: bug._id}}">
-  <div class="row mt-0 pt-0 px-0 mx-0" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
-    <div class="col-3 p-0 text-center border border-dark">
+  <div class="row mt-0 pt-0 px-0 mx-0 border-bottom border-dark" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
+    <div class="col-3 p-0 text-center border-right border-top border-dark">
   <p class="m-0">{{ bug.title }}</p>
   </div>
-  <div class="col-3 p-0 text-center">
+  <div class="col-3 p-0 text-center border-right border-top border-dark">
     <p class="m-0">{{ bug.creatorEmail }}</p>
   </div>
-  <div class="col-3 p-0 text-center">
+  <div class="col-3 p-0 text-center border-right border-top border-dark">
     <p class="m-0" v-if="bug.closed">Closed</p>
     <p class="m-0" v-if="!bug.closed">Open</p>
   </div>
-  <div class="col-3 p-0 text-center">
+  <div class="col-3 p-0 text-center border-top border-dark">
            <p class="m-0"> {{
               new Date(bug.updatedAt).toLocaleString("en-US", {
                 month: "short",
@@ -99,9 +99,7 @@
   </div>
 </div>
   </body>
-  <!-- <footer class="text-center pt-2">
-   <h5 class="text-light"> Made by Jacob Grow </h5>
-  </footer> -->
+ 
 </div>
 </template>
 
@@ -176,8 +174,7 @@ footer{
   color: white;
 } */
 
-/* .closed{
-  background-color: rgb(173, 64, 64);
-  color: white; */
-/* } */
+.closed{
+  color: gray; 
+}
 </style>
