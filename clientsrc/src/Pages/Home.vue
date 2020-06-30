@@ -1,11 +1,13 @@
 <template>
-  <div class="home bg">
+  <div class="home">
+    <body class="bg">
+      
 <div class="container-fluid">
 <div class="row">
 <div class="col">
-    <div class="row justify-content-center mt">
-      <div class="col-4 text-center bg1 card">
-    <h1 class="">Make A Report</h1>
+    <div class="row justify-content-center mt-5">
+      <div class="col-4 text-center">
+    <h1 class="text-light">Bugs</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -38,13 +40,12 @@
   </div>
 </div>
 
-<div class="row card bg1 p-4">
+<div class="row card bg1 pb-4 px-4 mt-1">
   <div class="col">
 
 
 
-<div class="card kard bg-light text-center">
-Bugs
+<div class="card kard bg-light text-center mt-0 pt-0">
 <div class="row mb-0 pb-0 px-0">
   <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0">Title</p>
@@ -61,24 +62,25 @@ Bugs
 </div>
 <div v-for="bug in bugs" :key="bug.id" :bug="bug">
   <router-link :to="{name: 'bug', params: {bugId: bug._id}}">
-  <div class="row mt-0 pt-0 border border-dark px-0 mx-0" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
-    <div class="col-3 p-0 text-center">
-  {{ bug.title }}
+  <div class="row mt-0 pt-0 px-0 mx-0" v-bind:class='{"closed": bug.closed == true, "open": bug.closed == false}'>
+    <div class="col-3 p-0 text-center border border-dark">
+  <p class="m-0">{{ bug.title }}</p>
   </div>
   <div class="col-3 p-0 text-center">
-    {{ bug.creatorEmail }}
+    <p class="m-0">{{ bug.creatorEmail }}</p>
   </div>
   <div class="col-3 p-0 text-center">
-    {{ bug.closed }}
+    <p class="m-0" v-if="bug.closed">Closed</p>
+    <p class="m-0" v-if="!bug.closed">Open</p>
   </div>
   <div class="col-3 p-0 text-center">
-            {{
+           <p class="m-0"> {{
               new Date(bug.updatedAt).toLocaleString("en-US", {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
               })
-            }}
+            }} </p>
   </div>
   </div>
   </router-link>
@@ -95,10 +97,11 @@ Bugs
       </div>
     </div>
   </div>
-  <footer class="text-center pt-2">
-   <h5 class="text-light"> Made by Jacob Grow </h5>
-  </footer>
 </div>
+  </body>
+  <!-- <footer class="text-center pt-2">
+   <h5 class="text-light"> Made by Jacob Grow </h5>
+  </footer> -->
 </div>
 </template>
 
@@ -146,9 +149,6 @@ export default {
   min-height: 300px;
 }
 
-/* .kard1{
-  width
-} */
 .bg{
   background-color: #323232;
   min-height: 100%
@@ -165,7 +165,10 @@ footer{
   min-height: 50px;
   background-color: #323232;
   color: white;
+  margin-bottom: 0;
+  bottom: 0;
 }
+
 
 
 /* .open{
