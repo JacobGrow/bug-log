@@ -1,7 +1,8 @@
 <template>
 <div class="bug container-fluid">
+<div class="card p-2 pl-3 mx-2">
 
-  <div class="row card">
+  <div class="row">
     <div class="col">
       <div class="row mt-5">
         <div class="col-6">
@@ -26,7 +27,9 @@
         <h5 class="text-right" v-if="bug.closed"> This bug has been closed</h5>
         </div>
       </div>
-      <div class="row mt-2 border border-light pt-1">
+      </div>
+      </div>
+      <div class="row mt-2 pt-1">
         <div class="col-11">
         <p>{{ bug.description }}</p>
         </div>
@@ -34,6 +37,7 @@
           <i class="fa fa-pencil pointer" data-toggle="modal" data-target="#bugEditModal" v-if="bug.closed==false"></i>
         </div>
       </div>
+</div>
       <div class="row mt-2" v-if="IsCreator">
         <div class="col text-right">
       <button class="btn btn-danger" @click="closeAlert" v-if="bug.closed == false" >CLOSE BUG</button>
@@ -44,7 +48,7 @@
 
       <div class="row mt-5">
         <div class="col">
-       <h3> NOTES </h3>
+       <h3 class="text-light"> NOTES </h3>
         </div>
       </div>
       <div class="row mt-3">
@@ -58,19 +62,23 @@
             <h5>Note:</h5>
           </div>
         </div>
+       
+
+       
         <note v-for="note in notes" :key="note.id" :note="note"/> 
 
       </div>
         </div>
       </div>
-      <div class="row mt-3">
-        <div class="col text-right">
+     
+        </div>
+        </div>
+        <div class="row justify-content-center mb-5 mt-1">
+          <div class="col-10 text-right">
         <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
         Add Note
         </button>
-        </div>
-      </div>
-        </div>
+          </div>
         </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -132,8 +140,7 @@
 
 
 
-        </div>
-      </div>
+     
     </div>
 
   
