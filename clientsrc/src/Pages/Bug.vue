@@ -1,6 +1,6 @@
 <template>
 <div class="bug container-fluid">
-<div class="card p-2 pl-3 mx-2">
+<div class="card p-2 pl-3 mx-5 mt-3">
 
   <div class="row">
     <div class="col">
@@ -38,9 +38,12 @@
         </div>
       </div>
 </div>
-      <div class="row mt-2" v-if="IsCreator">
+      <div class="row mt-2">
         <div class="col text-right">
-      <button class="btn btn-danger" @click="closeAlert" v-if="bug.closed == false" >CLOSE BUG</button>
+          <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary mr-3" v-if="!notes.length">
+        Add Note
+        </button>
+      <button class="btn btn-danger mr-5" @click="closeAlert" v-if="bug.closed == false || isCreator" >CLOSE BUG</button>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -48,10 +51,10 @@
 
       <div class="row mt-5">
         <div class="col">
-       <h3 class="text-light"> NOTES </h3>
+       <h3 class="text-light" v-if="notes.length>0"> NOTES </h3>
         </div>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-3" v-if="notes.length>0">
         <div class="col mx-3 px-0">
       <div class="card p-2">
         <div class="row mx-2">
@@ -75,7 +78,7 @@
         </div>
         <div class="row justify-content-center mb-5 mt-1">
           <div class="col-10 text-right">
-        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
+        <button v-if="notes.length>0" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary mt-2">
         Add Note
         </button>
           </div>

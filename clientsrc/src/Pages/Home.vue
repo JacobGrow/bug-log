@@ -45,7 +45,7 @@
 
 
 
-<div class="card kard bg-light text-center my-4 pt-0">
+<div class="card kard text-center my-4 pt-0">
 <div class="row mb-0 pb-0 px-0">
   <div class="col-3 mb-0 pb-0 p-0">
     <p class="pb-0 mb-0 text-dark font"><b>Title</b></p>
@@ -155,6 +155,7 @@ export default {
 .kard{
   margin-top: 15px;
   min-height: 300px;
+  background-color: rgb(236, 236, 236);
 }
 
 .bg{
@@ -163,7 +164,7 @@ export default {
 }
 
 .bg1{
-  background-color: #dae0e6;
+  background-color: #1a1a1a;
 }
 .mt{
   margin-top: 15px;
