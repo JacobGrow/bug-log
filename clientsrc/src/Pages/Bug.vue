@@ -2,7 +2,7 @@
 <div class="bug container-fluid">
 <div class="card p-2 pl-3 mx-5 mt-3">
 
-  <div class="row">
+  <div class="row border-bottom">
     <div class="col">
       <div class="row mt-5">
         <div class="col-6">
@@ -30,11 +30,11 @@
       </div>
       </div>
       <div class="row mt-2 pt-1">
-        <div class="col-11">
+        <div class="col-10">
         <p>{{ bug.description }}</p>
         </div>
         <div class="col-1 text-right" v-if="IsCreator">
-          <i class="fa fa-pencil pointer" data-toggle="modal" data-target="#bugEditModal" v-if="bug.closed==false"></i>
+          <button class="btn btn-warning pointer" data-toggle="modal" data-target="#bugEditModal" v-if="bug.closed==false">Edit</button>
         </div>
       </div>
 </div>
