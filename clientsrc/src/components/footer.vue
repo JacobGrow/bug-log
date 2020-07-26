@@ -1,7 +1,7 @@
 <template>
 
    <footer class=" footer text-center pt-2">
-   <h5 class="text-light"> Made by Jacob Grow </h5>
+   <h5 class="text-light py-1"> Made by Jacob Grow </h5>
   </footer>
 
 
