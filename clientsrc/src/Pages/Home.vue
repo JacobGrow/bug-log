@@ -28,7 +28,7 @@
           <input v-model="newBug.title" class="ml-2 mb-1" type="text" placeholder="Title..." required>
           </div>
           <div class="row">
-          <textarea v-model="newBug.description"  class="ml-2" placeholder="Your comments here.." name="" id="" cols="60" rows="10" required></textarea>
+          <textarea v-model="newBug.description"  class="ml-2" placeholder="Your comments here.." name="" id="" cols="72" rows="10" required></textarea>
           </div>
       </div>
       <div class="modal-footer">
