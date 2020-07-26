@@ -1,6 +1,6 @@
 <template>
 <div class="bug container-fluid">
-<div class="card p-2 pl-3 mx-5 mt-3">
+<div class="card px-5 mx-5 mt-3">
 
   <div class="row border-bottom">
     <div class="col">
